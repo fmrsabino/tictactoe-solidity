@@ -24,8 +24,7 @@ contract TicTacToe {
       }
       
       if (deposits[0] >= 1 ether && deposits[1] >= 1 ether) {
-          //TODO: pick starting player
-          turn = 0;
+          turn =  uint8(uint256(block.blockhash(block.number)) % 2);
       }
   }
   
