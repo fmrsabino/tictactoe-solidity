@@ -29,8 +29,8 @@ contract TicTacToe {
   }
   
   function play(uint8 position) public {
-      if (turn == 2) return; //Game not running
-      if (msg.sender != players[turn]) return;
+      require(turn != 2);
+      require(msg.sender == players[turn]);
       
       uint16 move = uint16(0x1) << position;
       //Check if the other player already made this move
