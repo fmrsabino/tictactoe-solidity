@@ -17,6 +17,7 @@ contract TicTacToe {
   }
   
   function deposit() public payable {
+    require(turn == 2);
       if (msg.sender == players[0]) {
           deposits[0] += msg.value;
       } else if (msg.sender == players[1]) {
@@ -33,6 +34,7 @@ contract TicTacToe {
       require(msg.sender == players[turn]);
       
       uint16 move = uint16(0x1) << position;
+      if (moves[(turn] & move == move) return;
       //Check if the other player already made this move
       if (moves[(turn + 1) % 2] & move == move) return;
       
